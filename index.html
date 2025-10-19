@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Card | Frontend Wizards Stage 0</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <article class="profile-card" data-testid="test-profile-card">
+    <header>
+      <h2 data-testid="test-user-name">Emerald Boma Epelle</h2>
+    </header>
+
+    <figure>
+      <img 
+        src="https://avatars.githubusercontent.com/u/141605085?v=4" 
+        alt="Profile photo of Emerald Epelle" 
+        data-testid="test-user-avatar"
+      />
+    </figure>
+
+    <p data-testid="test-user-bio">
+      Passionate software developer and 3MTT alum with a love for building accessible and responsive web applications. Focused on creating clean, user-friendly interfaces using HTML, CSS, JavaScript, and React.
+    </p>
+
+    <p data-testid="test-user-time" id="currentTime"></p>
+
+    <nav>
+      <ul class="social-links" data-testid="test-user-social-links">
+        <li><a href="https://github.com/EmeraldEpelle" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-github">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/emerald-epelle-55a716319/" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin">LinkedIn</a></li>
+        <li><a href="mailto:emeraldepelle@gmail.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-email">Email</a></li>
+      </ul>
+    </nav>
+
+    <section>
+      <h3>Hobbies</h3>
+      <ul data-testid="test-user-hobbies">
+        <li>Coding</li>
+        <li>Music</li>
+        <li>Volunteering</li>
+        <li>Learning new tech skills</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Dislikes</h3>
+      <ul data-testid="test-user-dislikes">
+        <li>Procrastination</li>
+        <li>Cluttered code</li>
+        <li>Inefficiency</li>
+      </ul>
+    </section>
+  </article>
+
+  <script src="script.js"></script>
+</body>
+</html>
