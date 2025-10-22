@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Frontend Wizards Stage 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="contact.html">Contact Me</a>
+  </nav>
+
+  <main>
+    <h1>Contact Me</h1>
+    <form id="contactForm" novalidate>
+      <label for="name">Full Name</label>
+      <input id="name" type="text" data-testid="test-contact-name" required />
+      <small id="error-name" data-testid="test-contact-error-name"></small>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" data-testid="test-contact-email" required aria-describedby="error-email" />
+      <small id="error-email" data-testid="test-contact-error-email"></small>
+
+      <label for="subject">Subject</label>
+      <input id="subject" type="text" data-testid="test-contact-subject" required />
+      <small id="error-subject" data-testid="test-contact-error-subject"></small>
+
+      <label for="message">Message</label>
+      <textarea id="message" data-testid="test-contact-message" required aria-describedby="error-message"></textarea>
+      <small id="error-message" data-testid="test-contact-error-message"></small>
+
+      <button type="submit" data-testid="test-contact-submit">Send Message</button>
+    </form>
+
+    <p id="success" data-testid="test-contact-success" class="success" hidden>
+      ✅ Thank you! Your message has been sent successfully.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

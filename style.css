@@ -1,0 +1,502 @@
+/* ---------------------- */
+/* GIRLY SWEET REDESIGN - WITH SCROLLING FIX */
+/* ---------------------- */
+
+:root {
+  --pink: #ff85a2;
+  --pink-light: #ffb6c1;
+  --pink-lighter: #ffeef2;
+  --purple: #d4a5ff;
+  --purple-light: #e6ccff;
+  --mint: #a0e7e5;
+  --peach: #ffd6cc;
+  --white: #fff;
+  --gray-light: #f8f5f7;
+  --text: #5a4a4a;
+  --border-radius: 20px;
+  --shadow: 0 8px 25px rgba(255, 133, 162, 0.15);
+  --transition: all 0.3s ease;
+}
+
+/* ---------------------- */
+/* STAGE 0 BASE STYLES - FIXED FOR SCROLLING */
+/* ---------------------- */
+
+/* FIX: This is the main scrolling fix! */
+html, body {
+  height: auto;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffeef2 0%, #fff0f5 50%, #f0f8ff 100%);
+  display: block; /* CHANGED FROM FLEX TO BLOCK - THIS FIXES SCROLLING! */
+  padding: 20px;
+  color: var(--text);
+  overflow-y: auto; /* Ensure scrolling works */
+}
+
+.profile-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  border: 1px solid var(--pink-light);
+  margin: 0 auto; /* Center the card */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add decorative elements */
+.profile-card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: var(--pink-light);
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.profile-card::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 80px;
+  height: 80px;
+  background: var(--purple-light);
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Header */
+.profile-card header {
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-card h2 {
+  color: var(--pink);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Profile Image */
+.profile-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--pink-light);
+  padding: 4px;
+  background: var(--white);
+  box-shadow: 0 4px 15px rgba(255, 133, 162, 0.2);
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+.profile-card img:hover {
+  transform: scale(1.05);
+  border-color: var(--pink);
+}
+
+/* Bio */
+.profile-card p[data-testid="test-user-bio"] {
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  background: var(--pink-lighter);
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--pink);
+}
+
+/* Current Time */
+.profile-card p[data-testid="test-user-time"] {
+  color: var(--purple);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.social-links li {
+  margin: 0;
+}
+
+.social-links a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(255, 133, 162, 0.3);
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 133, 162, 0.4);
+  text-decoration: none;
+}
+
+/* Sections */
+.profile-card section {
+  margin-bottom: 1.5rem;
+  padding: 1.2rem;
+  background: var(--gray-light);
+  border-radius: 12px;
+  transition: var(--transition);
+  border-left: 4px solid var(--purple-light);
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.profile-card section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+}
+
+.profile-card section h3 {
+  color: var(--purple);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-card section h3::before {
+  content: "🌸";
+  font-size: 1.2rem;
+}
+
+.profile-card section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-card section li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.profile-card section li::before {
+  content: "💕";
+  position: absolute;
+  left: 0;
+}
+
+/* Lists styling */
+.profile-card ul[data-testid="test-user-hobbies"] li::before {
+  content: "✨";
+}
+
+.profile-card ul[data-testid="test-user-dislikes"] li::before {
+  content: "🚫";
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: var(--pink);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--purple);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Responsive profile card */
+@media (min-width: 768px) {
+  .profile-card {
+    max-width: 450px;
+  }
+}
+
+/* ---------------------- */
+/* STAGE 1 ADDITIONS - GIRLY STYLE */
+/* ---------------------- */
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px 0;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(212, 165, 255, 0.3);
+}
+
+.navbar a {
+  color: var(--white);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  padding: 8px 16px;
+  border-radius: 25px;
+}
+
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Adjust body layout for pages with navbar */
+body:not(.profile-page) {
+  display: block;
+  padding-top: 80px;
+  height: auto;
+  background: linear-gradient(135deg, #ffeef2 0%, #fff0f5 100%);
+  min-height: 100vh;
+}
+
+/* --- MAIN PAGE CONTAINERS --- */
+main {
+  background: var(--white);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--pink-light);
+  position: relative;
+  overflow: hidden;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--pink), var(--purple), var(--mint));
+}
+
+main h1 {
+  text-align: center;
+  color: var(--pink);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* --- CONTACT FORM --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 5px;
+  display: block;
+}
+
+input, textarea {
+  padding: 12px 16px;
+  border: 2px solid var(--pink-light);
+  border-radius: 12px;
+  font-size: 1rem;
+  resize: vertical;
+  font-family: 'Poppins', sans-serif;
+  transition: var(--transition);
+  background: var(--gray-light);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--pink);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.1);
+}
+
+button {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 15px rgba(255, 133, 162, 0.3);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 133, 162, 0.4);
+  background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+}
+
+/* Error & Success Messages */
+.error {
+  color: #ff6b6b;
+  font-size: 0.9em;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.success {
+  color: var(--mint);
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+  padding: 12px;
+  background: rgba(160, 231, 229, 0.1);
+  border-radius: 12px;
+  border: 1px solid var(--mint);
+}
+
+/* --- ABOUT PAGE --- */
+section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--gray-light);
+  border-radius: 16px;
+  transition: var(--transition);
+  border-left: 4px solid var(--pink-light);
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+}
+
+section h2 {
+  color: var(--pink);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+section h2::before {
+  content: "🌸";
+}
+
+ul li {
+  margin-bottom: 8px;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+ul li::before {
+  content: "💕";
+  position: absolute;
+  left: 0;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  main {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px 0;
+  }
+  
+  .navbar a {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+  
+  section {
+    padding: 1.2rem;
+  }
+  
+  .social-links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .social-links a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-card, main {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Make sure all content is above decorative elements */
+.profile-card > * {
+  position: relative;
+  z-index: 1;
+}
